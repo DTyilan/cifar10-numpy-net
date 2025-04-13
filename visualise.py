@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def visualize_weights(params, save_dir='ckpts'):
     """
-    可视化多层感知机模型的权重矩阵并保存为图片。
+    可视化权重矩阵并保存为图片。
 
     参数:
         params (dict): 包含 'W1', 'W2', 'W3' 三个权重矩阵的字典。
@@ -14,10 +14,10 @@ def visualize_weights(params, save_dir='ckpts'):
     """
     os.makedirs(save_dir, exist_ok=True)
 
-    # ===== 可视化第一层权重 W1: 输入层 -> 隐藏层1 =====
-    W1 = params['W1']  # shape: (input_dim, hidden1_dim)
+    #  可视化第一层权重 W1: 输入层 -> 隐藏层1 
+    W1 = params['W1']  
     num_filters = W1.shape[1]
-    filter_size = int(np.sqrt(W1.shape[0] / 3))  # 假设 RGB 输入图像
+    filter_size = int(np.sqrt(W1.shape[0] / 3)) 
     grid_size = int(np.ceil(np.sqrt(num_filters)))
 
     fig, axes = plt.subplots(grid_size, grid_size, figsize=(10, 10))
@@ -36,8 +36,8 @@ def visualize_weights(params, save_dir='ckpts'):
     plt.savefig(os.path.join(save_dir, 'W1_visualization.png'))
     plt.close()
 
-    # ===== 可视化第二层权重 W2: 隐藏层1 -> 隐藏层2 =====
-    W2 = params['W2']  # shape: (hidden1_dim, hidden2_dim)
+    # 可视化第二层权重 W2: 隐藏层1 -> 隐藏层2 
+    W2 = params['W2']  
 
     fig, ax = plt.subplots(figsize=(10, 6))
     cax = ax.imshow(W2.T, aspect='auto', cmap='viridis')
@@ -49,13 +49,13 @@ def visualize_weights(params, save_dir='ckpts'):
     plt.savefig(os.path.join(save_dir, 'W2_heatmap.png'))
     plt.close()
 
-    # ===== 可视化第三层权重 W3: 隐藏层2 -> 输出层 =====
-    W3 = params['W3']  # shape: (hidden2_dim, num_classes)
+    #  可视化第三层权重 W3: 隐藏层2 -> 输出层 
+    W3 = params['W3']  
     hidden2_dim, num_classes = W3.shape
 
     fig, axes = plt.subplots(num_classes, 1, figsize=(8, 2 * num_classes))
     if num_classes == 1:
-        axes = [axes]  # 保证 axes 是 iterable
+        axes = [axes]  
 
     for i in range(num_classes):
         weights = W3[:, i]
