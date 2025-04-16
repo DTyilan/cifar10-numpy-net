@@ -48,20 +48,8 @@ python main.py
 - `pickle`（Python 内置模块）
 
 
-
-`requirements.txt` 示例内容如下：
-
-```
-numpy>=1.24.3
-matplotlib>=3.7.5
-```
-
 ## 📝 说明
 
 本项目旨在帮助学习者深入理解神经网络内部机制，特别是权重更新与误差反向传播过程。相比于使用深度学习框架（如 PyTorch、TensorFlow），本项目采用手工实现方式更适合教学与算法原理学习。
 Happy coding! 🎉
 ```
-
----
-
-如果你有额外模块（如 `model.py`, `utils.py` 等）也可以补充进去。需要我帮你生成 `requirements.txt` 文件内容吗？
